@@ -1,16 +1,16 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
+import utilities.Driver;
 
 public class _03_Selenium_Navigations {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chromedriver", "/Users/ramiturkmani/IdeaProjects/slenium_intro/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//        System.setProperty("webdriver.chromedriver", "/Users/ramiturkmani/IdeaProjects/slenium_intro/chromedriver");
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        WebDriver driver = Driver.getDriver();
 
         driver.get("https://www.techglobalschool.com");
         driver.navigate().refresh();
@@ -30,6 +30,6 @@ public class _03_Selenium_Navigations {
         if (actualURL.equals(expectedURL)) System.out.println("URL validation PASSED");
         else System.out.println("URL validation FAILED!!!");
 
-        driver.quit();
+        Driver.quitDriver();
     }
 }
